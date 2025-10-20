@@ -70,4 +70,28 @@ export const customerSupportTools: FunctionCall[] = [
     isEnabled: true,
     scheduling: FunctionResponseScheduling.INTERRUPT,
   },
+  {
+    name: 'detect_operacao',
+    description: 'Verifica qual operação o usuário quer fazer. As possíveis escolhas são soma, subtração, divisão e produto.',
+    parameters: {
+      type: 'OBJECT',
+      properties: {
+        operationName: {
+          type: 'STRING',
+          description: "O nome da operação a ser realizada: 'soma', 'subtracao', 'divisao' ou 'produto'.",
+        },
+        number1: {
+          type: 'NUMBER',
+          description: 'O primeiro número para a operação.',
+        },
+        number2: {
+          type: 'NUMBER',
+          description: 'O segundo número para a operação.',
+        },
+      },
+      required: ['operationName', 'number1', 'number2'],
+    },
+    isEnabled: true,
+    scheduling: FunctionResponseScheduling.INTERRUPT,
+  },
 ];
